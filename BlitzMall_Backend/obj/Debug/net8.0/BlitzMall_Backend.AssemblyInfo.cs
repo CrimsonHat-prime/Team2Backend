@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BlitzMall_Backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bad1399f89f8f8fe2a792eae09acefce1a443043")]
 [assembly: System.Reflection.AssemblyProductAttribute("BlitzMall_Backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BlitzMall_Backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
