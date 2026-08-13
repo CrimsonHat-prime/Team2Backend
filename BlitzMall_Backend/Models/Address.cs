@@ -11,6 +11,6 @@
     public string? Street { get; set; }
     public string? PostalCode { get; set; }
     public string? Apartment { get; set; }
-    public string? BuildingNumer { get; set; }
+    public string? BuildingNumber { get; set; }
     }
 }

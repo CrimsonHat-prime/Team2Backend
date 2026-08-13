@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|c:\\users\\admin\\source\\downloads\\blitzmall_backend\\blitzmall_backend\\models\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|solutionrelative:blitzmall_backend\\models\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|c:\\users\\admin\\source\\downloads\\blitzmall_backend\\blitzmall_backend\\models\\seller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|solutionrelative:blitzmall_backend\\models\\seller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|c:\\users\\admin\\source\\downloads\\blitzmall_backend\\blitzmall_backend\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|solutionrelative:blitzmall_backend\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|c:\\users\\admin\\source\\downloads\\blitzmall_backend\\blitzmall_backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|solutionrelative:blitzmall_backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|c:\\users\\admin\\source\\downloads\\blitzmall_backend\\blitzmall_backend\\models\\delivery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|solutionrelative:blitzmall_backend\\models\\delivery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -43,24 +59,8 @@
       "RelativeMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|solutionrelative:blitzmall_backend\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|c:\\users\\admin\\source\\downloads\\blitzmall_backend\\blitzmall_backend\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|solutionrelative:blitzmall_backend\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|c:\\users\\admin\\source\\downloads\\blitzmall_backend\\blitzmall_backend\\models\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|solutionrelative:blitzmall_backend\\models\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|c:\\users\\admin\\source\\downloads\\blitzmall_backend\\blitzmall_backend\\models\\seller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|solutionrelative:blitzmall_backend\\models\\seller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|c:\\users\\admin\\source\\downloads\\blitzmall_backend\\blitzmall_backend\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|solutionrelative:blitzmall_backend\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|c:\\users\\admin\\source\\downloads\\blitzmall_backend\\blitzmall_backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|solutionrelative:blitzmall_backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6F59B414-4CB6-4A0B-8897-2433F92CB199}|BlitzMall_Backend\\BlitzMall_Backend.csproj|c:\\users\\admin\\source\\downloads\\blitzmall_backend\\blitzmall_backend\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -74,7 +74,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 17,
           "Children": [
             {
               "$type": "Bookmark",
@@ -114,7 +114,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Delivery.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Delivery.cs",
               "RelativeDocumentMoniker": "BlitzMall_Backend\\Models\\Delivery.cs",
@@ -128,58 +128,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Payment.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Payment.cs",
-              "RelativeDocumentMoniker": "BlitzMall_Backend\\Models\\Payment.cs",
-              "ToolTip": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Payment.cs",
-              "RelativeToolTip": "BlitzMall_Backend\\Models\\Payment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T23:28:26.325Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OrderItem.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\OrderItem.cs",
-              "RelativeDocumentMoniker": "BlitzMall_Backend\\Models\\OrderItem.cs",
-              "ToolTip": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\OrderItem.cs",
-              "RelativeToolTip": "BlitzMall_Backend\\Models\\OrderItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T23:22:23.022Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Order.cs",
-              "RelativeDocumentMoniker": "BlitzMall_Backend\\Models\\Order.cs",
-              "ToolTip": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Order.cs",
-              "RelativeToolTip": "BlitzMall_Backend\\Models\\Order.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAzwAgAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T14:46:12.148Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
               "Title": "CartItem.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\CartItem.cs",
               "RelativeDocumentMoniker": "BlitzMall_Backend\\Models\\CartItem.cs",
               "ToolTip": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\CartItem.cs",
               "RelativeToolTip": "BlitzMall_Backend\\Models\\CartItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-10T14:43:10.452Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "Cart.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Cart.cs",
               "RelativeDocumentMoniker": "BlitzMall_Backend\\Models\\Cart.cs",
@@ -187,12 +148,11 @@
               "RelativeToolTip": "BlitzMall_Backend\\Models\\Cart.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAxwAkAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T14:39:21.142Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-10T14:39:21.142Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "Review.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Review.cs",
               "RelativeDocumentMoniker": "BlitzMall_Backend\\Models\\Review.cs",
@@ -200,12 +160,11 @@
               "RelativeToolTip": "BlitzMall_Backend\\Models\\Review.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAxwA0AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T14:29:44.851Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-10T14:29:44.851Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "ProdImg.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\ProdImg.cs",
               "RelativeDocumentMoniker": "BlitzMall_Backend\\Models\\ProdImg.cs",
@@ -213,12 +172,11 @@
               "RelativeToolTip": "BlitzMall_Backend\\Models\\ProdImg.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T14:26:37.054Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-10T14:26:37.054Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Product.cs",
               "RelativeDocumentMoniker": "BlitzMall_Backend\\Models\\Product.cs",
@@ -226,12 +184,86 @@
               "RelativeToolTip": "BlitzMall_Backend\\Models\\Product.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAywAoAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T13:59:26.906Z",
+              "WhenOpened": "2026-08-10T13:59:26.906Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\User.cs",
+              "RelativeDocumentMoniker": "BlitzMall_Backend\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\User.cs",
+              "RelativeToolTip": "BlitzMall_Backend\\Models\\User.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAswBgAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-07T21:52:32.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Seller.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Seller.cs",
+              "RelativeDocumentMoniker": "BlitzMall_Backend\\Models\\Seller.cs",
+              "ToolTip": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Seller.cs",
+              "RelativeToolTip": "BlitzMall_Backend\\Models\\Seller.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAzwA0AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T13:18:55.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Address.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Address.cs",
+              "RelativeDocumentMoniker": "BlitzMall_Backend\\Models\\Address.cs",
+              "ToolTip": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Address.cs",
+              "RelativeToolTip": "BlitzMall_Backend\\Models\\Address.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA/wA0AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T13:41:33.683Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "BlitzMall_Backend\\Models\\Order.cs",
+              "ToolTip": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Order.cs",
+              "RelativeToolTip": "BlitzMall_Backend\\Models\\Order.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAzwAgAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T14:46:12.148Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "OrderItem.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\OrderItem.cs",
+              "RelativeDocumentMoniker": "BlitzMall_Backend\\Models\\OrderItem.cs",
+              "ToolTip": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\OrderItem.cs",
+              "RelativeToolTip": "BlitzMall_Backend\\Models\\OrderItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T23:22:23.022Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Payment.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Payment.cs",
+              "RelativeDocumentMoniker": "BlitzMall_Backend\\Models\\Payment.cs",
+              "ToolTip": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Payment.cs",
+              "RelativeToolTip": "BlitzMall_Backend\\Models\\Payment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T23:28:26.325Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Brand.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Brand.cs",
               "RelativeDocumentMoniker": "BlitzMall_Backend\\Models\\Brand.cs",
@@ -239,12 +271,11 @@
               "RelativeToolTip": "BlitzMall_Backend\\Models\\Brand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T13:56:12.882Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-10T13:56:12.882Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "Category.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Category.cs",
               "RelativeDocumentMoniker": "BlitzMall_Backend\\Models\\Category.cs",
@@ -252,36 +283,11 @@
               "RelativeToolTip": "BlitzMall_Backend\\Models\\Category.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T13:49:27.67Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-10T13:49:27.67Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Address.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Address.cs",
-              "RelativeDocumentMoniker": "BlitzMall_Backend\\Models\\Address.cs",
-              "ToolTip": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Address.cs",
-              "RelativeToolTip": "BlitzMall_Backend\\Models\\Address.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T13:41:33.683Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Seller.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Seller.cs",
-              "RelativeDocumentMoniker": "BlitzMall_Backend\\Models\\Seller.cs",
-              "ToolTip": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Seller.cs",
-              "RelativeToolTip": "BlitzMall_Backend\\Models\\Seller.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T13:18:55.075Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Role.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\Role.cs",
               "RelativeDocumentMoniker": "BlitzMall_Backend\\Models\\Role.cs",
@@ -290,18 +296,6 @@
               "ViewState": "AgIAAAEAAAAAAAAAAAAAAAcAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-10T12:42:43.962Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\User.cs",
-              "RelativeDocumentMoniker": "BlitzMall_Backend\\Models\\User.cs",
-              "ToolTip": "C:\\Users\\admin\\source\\downloads\\BlitzMall_Backend\\BlitzMall_Backend\\Models\\User.cs",
-              "RelativeToolTip": "BlitzMall_Backend\\Models\\User.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAiwBQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-07T21:52:32.632Z"
             },
             {
               "$type": "Document",

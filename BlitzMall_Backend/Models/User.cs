@@ -1,9 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BlitzMall_Backend.Models
-{
-    public class User
-    {
 
 
       namespace BlitzMall_Backend.Models
@@ -25,8 +21,11 @@ namespace BlitzMall_Backend.Models
 
          
             public Seller? Seller { get; set; }
-        }
+        public int RoleId { get; set; }
+        public Role? Role { get; set; }
+    
+    }
     }
 
-}
-}
+
+

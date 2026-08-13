@@ -11,7 +11,7 @@
     public DateTime CreatedAt { get; set; }
     public string? Phone { get; set; }
     public string? Email { get; set; }
-    public ICollection<Product> Products { get; set; }
+    public ICollection<Product>? Products { get; set; }
 
     }
 }
