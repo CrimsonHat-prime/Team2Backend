@@ -481,6 +481,7 @@ namespace BlitzMall_Backend.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(254)
                         .HasColumnType("nvarchar(254)");
 
@@ -509,8 +510,7 @@ namespace BlitzMall_Backend.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("Email")
-                        .IsUnique()
-                        .HasFilter("[Email] IS NOT NULL");
+                        .IsUnique();
 
                     b.HasIndex("RoleId");
 

@@ -12,9 +12,8 @@ namespace BlitzMall_Backend.Models
         [Range(1, int.MaxValue)]
         public int Quantity { get; set; }
 
-        [Range(0, double.MaxValue)]
+        [Range(0.01, double.MaxValue)]
         public decimal UnitPrice { get; set; }
-
     }
   
     }

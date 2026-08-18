@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlitzMall_Backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260818152209_FixReviewIssues")]
+    [Migration("20260818173004_FixReviewIssues")]
     partial class FixReviewIssues
     {
         /// <inheritdoc />
@@ -484,6 +484,7 @@ namespace BlitzMall_Backend.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(254)
                         .HasColumnType("nvarchar(254)");
 
@@ -512,8 +513,7 @@ namespace BlitzMall_Backend.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("Email")
-                        .IsUnique()
-                        .HasFilter("[Email] IS NOT NULL");
+                        .IsUnique();
 
                     b.HasIndex("RoleId");
 
