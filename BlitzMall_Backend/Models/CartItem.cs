@@ -11,5 +11,11 @@ namespace BlitzMall_Backend.Models
     public Product? Product { get; set; }
         [Range(1, int.MaxValue)]
         public int Quantity { get; set; }
+
+        [Range(0, double.MaxValue)]
+        public decimal UnitPrice { get; set; }
+
     }
-}
+  
+    }
+

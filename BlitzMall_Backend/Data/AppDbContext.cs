@@ -177,6 +177,9 @@ namespace BlitzMall_Backend.Data
                 .Property(oi => oi.UnitPrice)
                 .HasPrecision(18, 2);
 
+            modelBuilder.Entity<CartItem>()
+    .Property(ci => ci.UnitPrice)
+    .HasPrecision(18, 2);
             modelBuilder.Entity<Payment>()
                 .Property(p => p.Amount)
                 .HasPrecision(18, 2);
@@ -189,6 +192,9 @@ namespace BlitzMall_Backend.Data
             modelBuilder.Entity<Seller>()
                 .HasIndex(s => s.UserId)
                 .IsUnique();
+            modelBuilder.Entity<User>()
+        .HasIndex(u => u.Email)
+        .IsUnique();
         }
     }
 }
