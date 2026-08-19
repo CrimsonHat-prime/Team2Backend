@@ -1,5 +1,7 @@
 ﻿
-   namespace BlitzMall_Backend.Models
+using System.ComponentModel.DataAnnotations;
+
+namespace BlitzMall_Backend.Models
     {
         public class Delivery
         {
@@ -8,12 +10,17 @@
             public int OrderId { get; set; }
             public Order? Order { get; set; }
 
-            public string? Method { get; set; }
-            public string? Carrier { get; set; }
-            public string? TrackingNumber { get; set; }
-            public string? Status { get; set; }
+        [MaxLength(50)]
+        public string? Method { get; set; }
 
-            public DateTime CreatedAt { get; set; }
+        [MaxLength(100)]
+        public string? Carrier { get; set; }
+
+        [MaxLength(100)]
+        public string? TrackingNumber { get; set; }
+        [MaxLength(50)]
+        public string? Status { get; set; }
+        public DateTime CreatedAt { get; set; }
             public DateTime? ShippedAt { get; set; }
             public DateTime? DeliveredAt { get; set; }
         }
