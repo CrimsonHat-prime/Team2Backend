@@ -13,7 +13,7 @@ namespace BlitzMall_Backend.DTOs.Auth
         [Required, MinLength(6), MaxLength(100)]
         public string Password { get; set; } = string.Empty;
 
-        [MaxLength(20)]
-        public string? Phone { get; set; }
+        [Required, Compare("Password", ErrorMessage = "Passwords do not match.")]
+        public string ConfirmPassword { get; set; } = string.Empty;
     }
 }
