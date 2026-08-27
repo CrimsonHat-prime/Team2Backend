@@ -4,7 +4,7 @@ namespace BlitzMall_Backend.DTOs.Product
 {
     public class CreateProductDto
     {
-        [Required, MaxLength(100)]
+        [Required, MaxLength(200)]
         public string Name { get; set; } = string.Empty;
         public string? Description { get; set; }
         [Required,Range(0.1,1000000000)]

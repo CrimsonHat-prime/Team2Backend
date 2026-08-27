@@ -1,17 +1,13 @@
 ﻿using BlitzMall_Backend.Data;
-using BlitzMall_Backend.DTOs.Auth;
 using BlitzMall_Backend.DTOs.Product;
 using BlitzMall_Backend.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Text;
 using Microsoft.AspNetCore.Http;
+using System.IdentityModel.Tokens.Jwt;
 
-
-namespace BlitzMall_Backend.Services
-{
+namespace BlitzMall_Backend.Services { 
+    
     public class ProductService:IProductService
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
@@ -85,7 +81,7 @@ namespace BlitzMall_Backend.Services
 
             var userIdClaim = _httpContextAccessor.HttpContext?
                 .User
-                .FindFirstValue(ClaimTypes.NameIdentifier);
+                .FindFirstValue(JwtRegisteredClaimNames.Sub);
 
             if (userIdClaim == null)
             {
@@ -141,7 +137,7 @@ namespace BlitzMall_Backend.Services
 
             var userIdClaim = _httpContextAccessor.HttpContext?
                 .User
-                .FindFirstValue(ClaimTypes.NameIdentifier);
+                .FindFirstValue(JwtRegisteredClaimNames.Sub);
 
             if (userIdClaim == null)
             {
@@ -207,7 +203,7 @@ namespace BlitzMall_Backend.Services
             }
             var userIdClaim = _httpContextAccessor.HttpContext?
                 .User
-                .FindFirstValue(ClaimTypes.NameIdentifier);
+                .FindFirstValue(JwtRegisteredClaimNames.Sub);
 
             if (userIdClaim == null)
             {

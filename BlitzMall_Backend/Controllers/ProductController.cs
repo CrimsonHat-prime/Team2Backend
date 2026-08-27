@@ -1,12 +1,14 @@
 ﻿using BlitzMall_Backend.DTOs.Product;
+using BlitzMall_Backend.Models;
 using BlitzMall_Backend.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlitzMall_Backend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ProductController : Controller
+    public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
 
@@ -25,34 +27,78 @@ namespace BlitzMall_Backend.Controllers
 
             return Ok(product);
         }
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateProductDto dto)
         {
-            var product = await _productService.CreateAsync(dto);
+            try
+            {
+                var product = await _productService.CreateAsync(dto);
 
-            return Ok(product);
+                return Ok(product);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized();
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(
     int id,
     [FromBody] UpdateProductDto dto)
         {
-            var product = await _productService.UpdateAsync(id, dto);
+            try
+            {
+                var product = await _productService.UpdateAsync(id, dto);
 
-            if (product == null)
-                return NotFound();
+                if (product == null)
+                    return NotFound();
 
-            return Ok(product);
+                return Ok(product);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized();
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var result = await _productService.DeleteAsync(id);
+            try
+            {
+                var result = await _productService.DeleteAsync(id);
 
-            if (!result)
-                return NotFound();
+                if (!result)
+                    return NotFound();
 
-            return Ok();
+                return Ok();
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized();
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var products = await _productService.GetAllAsync();
+
+            return Ok(products);
+        }
+
     }
 }
