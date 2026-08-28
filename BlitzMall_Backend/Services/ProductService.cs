@@ -1,30 +1,28 @@
 ﻿using BlitzMall_Backend.Data;
 using BlitzMall_Backend.DTOs.Product;
 using BlitzMall_Backend.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
-using Microsoft.AspNetCore.Http;
-using System.IdentityModel.Tokens.Jwt;
 
-namespace BlitzMall_Backend.Services { 
-    
-    public class ProductService:IProductService
+namespace BlitzMall_Backend.Services
+{
+    public class ProductService : IProductService
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly AppDbContext _db;
 
         public ProductService(
-       AppDbContext db,
-       IHttpContextAccessor httpContextAccessor)
+            AppDbContext db,
+            IHttpContextAccessor httpContextAccessor)
         {
             _db = db;
             _httpContextAccessor = httpContextAccessor;
         }
+
         public async Task<List<ProductDto>> GetAllAsync()
         {
-
             return await _db.Products
-             
                 .Select(p => new ProductDto
                 {
                     Name = p.Name,
@@ -38,16 +36,16 @@ namespace BlitzMall_Backend.Services {
                     SellerName = p.Seller.Name,
 
                     ImgUrls = p.ProdImgs
-                .Select(i => i.UrlImage!)
-                .ToList()
+                        .Select(i => i.UrlImage!)
+                        .ToList()
                 })
                 .ToListAsync();
         }
-       public async Task<ProductDto?> GetByIdAsync(int id)
+
+        public async Task<ProductDto?> GetByIdAsync(int id)
         {
             return await _db.Products
-               .Where(p => p.Id == id)
-
+                .Where(p => p.Id == id)
                 .Select(p => new ProductDto
                 {
                     Name = p.Name,
@@ -61,13 +59,13 @@ namespace BlitzMall_Backend.Services {
                     SellerName = p.Seller.Name,
 
                     ImgUrls = p.ProdImgs
-                .Select(i => i.UrlImage!)
-                .ToList()
+                        .Select(i => i.UrlImage!)
+                        .ToList()
                 })
                 .FirstOrDefaultAsync();
         }
- 
-    public async Task<ProductDto> CreateAsync(CreateProductDto dto)
+
+        public async Task<ProductDto> CreateAsync(CreateProductDto dto)
         {
             var product = new Product
             {
@@ -81,7 +79,7 @@ namespace BlitzMall_Backend.Services {
 
             var userIdClaim = _httpContextAccessor.HttpContext?
                 .User
-                .FindFirstValue(JwtRegisteredClaimNames.Sub);
+                .FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (userIdClaim == null)
             {
@@ -117,15 +115,18 @@ namespace BlitzMall_Backend.Services {
 
                     _db.ProdImgs.Add(image);
                 }
-    
+
                 await _db.SaveChangesAsync();
             }
-            return await GetByIdAsync(product.Id)
-?? throw new InvalidOperationException("Product was not found after creation.");
 
+            return await GetByIdAsync(product.Id)
+                ?? throw new InvalidOperationException(
+                    "Product was not found after creation.");
         }
 
-        public async Task<ProductDto?> UpdateAsync(int id, UpdateProductDto dto)
+        public async Task<ProductDto?> UpdateAsync(
+            int id,
+            UpdateProductDto dto)
         {
             var product = await _db.Products
                 .FirstOrDefaultAsync(p => p.Id == id);
@@ -137,7 +138,7 @@ namespace BlitzMall_Backend.Services {
 
             var userIdClaim = _httpContextAccessor.HttpContext?
                 .User
-                .FindFirstValue(JwtRegisteredClaimNames.Sub);
+                .FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (userIdClaim == null)
             {
@@ -193,17 +194,20 @@ namespace BlitzMall_Backend.Services {
 
             return await GetByIdAsync(id);
         }
+
         public async Task<bool> DeleteAsync(int id)
         {
             var product = await _db.Products
-    .FirstOrDefaultAsync(p => p.Id == id);
+                .FirstOrDefaultAsync(p => p.Id == id);
+
             if (product == null)
             {
                 return false;
             }
+
             var userIdClaim = _httpContextAccessor.HttpContext?
                 .User
-                .FindFirstValue(JwtRegisteredClaimNames.Sub);
+                .FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (userIdClaim == null)
             {
@@ -223,17 +227,14 @@ namespace BlitzMall_Backend.Services {
             if (product.SellerId != seller.Id)
             {
                 throw new UnauthorizedAccessException(
-                    "you cannot delete");
+                    "You cannot delete this product.");
             }
+
             _db.Products.Remove(product);
 
             await _db.SaveChangesAsync();
 
             return true;
         }
-   
-    
-    
     }
-    }
-
+}
