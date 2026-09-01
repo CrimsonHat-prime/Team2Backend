@@ -32,7 +32,6 @@ namespace BlitzMall_Backend.Services
             {
                 Name = dto.Name,
                 Email = dto.Email,
-                Phone = dto.Phone,
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),
                 RoleId = buyerRole.Id,
                 CreatedAt = DateTime.UtcNow,
@@ -73,8 +72,8 @@ namespace BlitzMall_Backend.Services
 
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-                new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.Role, role),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
