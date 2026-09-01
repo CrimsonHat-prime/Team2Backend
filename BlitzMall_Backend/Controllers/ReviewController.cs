@@ -1,71 +1,84 @@
-﻿using BlitzMall_Backend.DTOs.Role;
+﻿using BlitzMall_Backend.DTOs.Review;
 using BlitzMall_Backend.Services;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
 namespace BlitzMall_Backend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class RoleController : ControllerBase
+    public class ReviewController : ControllerBase
     {
-        private readonly IRoleService _roleService;
+        private readonly IReviewService _reviewService;
 
-        public RoleController(IRoleService roleService)
+        public ReviewController(IReviewService reviewService)
         {
-            _roleService = roleService;
+            _reviewService = reviewService;
         }
 
-       
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             try
             {
-                var roles = await _roleService.GetAllAsync();
+                var reviews = await _reviewService.GetAllAsync();
 
-                return Ok(roles);
+                return Ok(reviews);
             }
             catch (Exception)
             {
-                return StatusCode(500, new { message = "An unexpected error occurred." });
+                return StatusCode(500, new
+                {
+                    message = "An unexpected error occurred."
+                });
             }
         }
 
         [HttpGet("{id}")]
-       
         public async Task<IActionResult> GetById(int id)
         {
             try
             {
-                var role = await _roleService.GetByIdAsync(id);
+                var review = await _reviewService.GetByIdAsync(id);
 
-                if (role == null)
+                if (review == null)
                     return NotFound();
 
-                return Ok(role);
+                return Ok(review);
             }
             catch (Exception)
             {
-                return StatusCode(500, new { message = "An unexpected error occurred." });
+                return StatusCode(500, new
+                {
+                    message = "An unexpected error occurred."
+                });
             }
         }
-       
-        [Authorize(Roles = "Admin")]
+
+        [Authorize]
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateRoleDto dto)
+        public async Task<IActionResult> Create(
+            [FromBody] CreateReviewDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             try
             {
-                var role = await _roleService.CreateAsync(dto);
+                var review = await _reviewService.CreateAsync(dto);
 
-                return Ok(role);
+                return Ok(review);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new
+                {
+                    message = ex.Message
+                });
             }
             catch (InvalidOperationException ex)
             {
-                return Conflict(new
+                return BadRequest(new
                 {
                     message = ex.Message
                 });
@@ -78,45 +91,57 @@ namespace BlitzMall_Backend.Controllers
                 });
             }
         }
+
+        [Authorize]
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(
-        int id,
-        [FromBody] UpdateRoleDto dto)
+            int id,
+            [FromBody] UpdateReviewDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             try
             {
-                var role = await _roleService.UpdateAsync(id, dto);
+                var review = await _reviewService.UpdateAsync(id, dto);
 
-                if (role == null)
+                if (review == null)
                     return NotFound();
 
-                return Ok(role);
+                return Ok(review);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new
+                {
+                    message = ex.Message
+                });
             }
             catch (Exception)
             {
-                return StatusCode(500, new { message = "An unexpected error occurred." });
+                return StatusCode(500, new
+                {
+                    message = "An unexpected error occurred."
+                });
             }
         }
-        [Authorize(Roles = "Admin")]
+
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             try
             {
-                var result = await _roleService.DeleteAsync(id);
+                var result = await _reviewService.DeleteAsync(id);
 
                 if (!result)
                     return NotFound();
 
                 return Ok();
             }
-            catch (InvalidOperationException ex)
+            catch (UnauthorizedAccessException ex)
             {
-                return Conflict(new
+                return Unauthorized(new
                 {
                     message = ex.Message
                 });

@@ -1,9 +1,8 @@
 ﻿using BlitzMall_Backend.Data;
 using BlitzMall_Backend.DTOs.Role;
 using BlitzMall_Backend.Models;
-using Microsoft.AspNetCore.Http;
+
 using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
 
 namespace BlitzMall_Backend.Services
 {
@@ -51,6 +50,12 @@ namespace BlitzMall_Backend.Services
 
         public async Task<RoleDto> CreateAsync(CreateRoleDto dto)
         {
+            if (await _db.Roles.AnyAsync(r => r.Name == dto.Name))
+            {
+                throw new InvalidOperationException(
+                    "A role with this name already exists.");
+            }
+
             var role = new Role
             {
                 Name = dto.Name,
@@ -100,6 +105,12 @@ namespace BlitzMall_Backend.Services
             if (role == null)
             {
                 return false;
+            }
+
+            if (await _db.Users.AnyAsync(u => u.RoleId == id))
+            {
+                throw new InvalidOperationException(
+                    "Cannot delete a role that is assigned to users.");
             }
 
             _db.Roles.Remove(role);
