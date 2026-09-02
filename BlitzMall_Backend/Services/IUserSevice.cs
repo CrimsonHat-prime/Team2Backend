@@ -9,5 +9,6 @@ namespace BlitzMall_Backend.Services
         Task<UserDto> CreateAsync(CreateUserDto dto);
         Task<UserDto?> UpdateAsync(int id, UpdateUserDto dto);
         Task<bool> DeleteAsync(int id);
+        Task<bool> ChangeRoleAsync(int id, int roleId);
     }
 }

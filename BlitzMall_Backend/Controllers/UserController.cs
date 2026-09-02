@@ -84,5 +84,34 @@ namespace BlitzMall_Backend.Controllers
 
             return NoContent();
         }
+        [Authorize(Roles = "Admin")]
+        [HttpPut("{id}/role")]
+        public async Task<IActionResult> ChangeRole(
+        int id,
+        [FromBody] ChangeUserRoleDto dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                var result = await _userService.ChangeRoleAsync(
+                    id,
+                    dto.RoleId);
+
+                if (!result)
+                {
+                    return NotFound();
+                }
+
+                return NoContent();
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
     }
 }

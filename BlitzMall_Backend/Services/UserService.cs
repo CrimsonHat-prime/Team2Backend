@@ -150,5 +150,30 @@ namespace BlitzMall_Backend.Services
 
             return true;
         }
+        public async Task<bool> ChangeRoleAsync(int id, int roleId)
+        {
+            var user = await _db.Users
+                .FirstOrDefaultAsync(u => u.Id == id);
+
+            if (user == null)
+            {
+                return false;
+            }
+
+            var roleExists = await _db.Roles
+                .AnyAsync(r => r.Id == roleId);
+
+            if (!roleExists)
+            {
+                throw new InvalidOperationException("Role not found.");
+            }
+
+            user.RoleId = roleId;
+            user.UpdatedAt = DateTime.UtcNow;
+
+            await _db.SaveChangesAsync();
+
+            return true;
+        }
     }
 }
