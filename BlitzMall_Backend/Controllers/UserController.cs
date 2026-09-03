@@ -7,6 +7,7 @@ namespace BlitzMall_Backend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(Roles = "Admin")]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -84,11 +85,11 @@ namespace BlitzMall_Backend.Controllers
 
             return NoContent();
         }
-        [Authorize(Roles = "Admin")]
+
         [HttpPut("{id}/role")]
         public async Task<IActionResult> ChangeRole(
-        int id,
-        [FromBody] ChangeUserRoleDto dto)
+            int id,
+            [FromBody] ChangeUserRoleDto dto)
         {
             if (!ModelState.IsValid)
             {
