@@ -19,18 +19,24 @@ namespace BlitzMall_Backend.Services
             _httpContextAccessor = httpContextAccessor;
         }
 
+        private int? GetCurrentUserId()
+        {
+            var claim = _httpContextAccessor.HttpContext?
+                .User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            return int.TryParse(claim, out int id) ? id : null;
+        }
+
         public async Task<List<SellerDto>> GetAllAsync()
         {
             return await _db.Sellers
                 .Select(s => new SellerDto
                 {
                     Id = s.Id,
-                    Name = s.Name ?? string.Empty,
-                    Description = s.Description ?? string.Empty,
+                    Name = s.Name,
+                    Description = s.Description,
                     UserId = s.UserId,
-                    CreatedAt = s.CreatedAt,
-                    Phone = s.Phone ?? string.Empty,
-                    Email = s.Email ?? string.Empty
+                    CreatedAt = s.CreatedAt
                 })
                 .ToListAsync();
         }
@@ -42,31 +48,38 @@ namespace BlitzMall_Backend.Services
                 .Select(s => new SellerDto
                 {
                     Id = s.Id,
-                    Name = s.Name ?? string.Empty,
-                    Description = s.Description ?? string.Empty,
+                    Name = s.Name,
+                    Description = s.Description,
                     UserId = s.UserId,
-                    CreatedAt = s.CreatedAt,
-                    Phone = s.Phone ?? string.Empty,
-                    Email = s.Email ?? string.Empty
+                    CreatedAt = s.CreatedAt
                 })
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<SellerDto> CreateAsync(CreateSellerDto dto)
+        public async Task<SellerDetailDto?> GetDetailsByIdAsync(int id)
         {
-            var userIdClaim = _httpContextAccessor.HttpContext?
-                .User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            return await _db.Sellers
+                .Where(s => s.Id == id)
+                .Select(s => new SellerDetailDto
+                {
+                    Id = s.Id,
+                    Name = s.Name,
+                    Description = s.Description,
+                    UserId = s.UserId,
+                    CreatedAt = s.CreatedAt,
+                    Phone = s.Phone,
+                    Email = s.Email
+                })
+                .FirstOrDefaultAsync();
+        }
 
-            if (!int.TryParse(userIdClaim, out int userId))
-            {
-                throw new UnauthorizedAccessException("User is not authorized.");
-            }
+        public async Task<SellerDetailDto> CreateAsync(CreateSellerDto dto)
+        {
+            var userId = GetCurrentUserId()
+                ?? throw new UnauthorizedAccessException("User is not authorized.");
 
             if (await _db.Sellers.AnyAsync(s => s.UserId == userId))
-            {
-                throw new InvalidOperationException(
-                    "User already has a seller profile.");
-            }
+                throw new InvalidOperationException("User already has a seller profile.");
 
             var seller = new Seller
             {
@@ -79,46 +92,32 @@ namespace BlitzMall_Backend.Services
             };
 
             _db.Sellers.Add(seller);
-
             await _db.SaveChangesAsync();
 
-            return new SellerDto
+            return new SellerDetailDto
             {
                 Id = seller.Id,
-                Name = seller.Name ?? string.Empty,
-                Description = seller.Description ?? string.Empty,
+                Name = seller.Name,
+                Description = seller.Description,
                 UserId = seller.UserId,
                 CreatedAt = seller.CreatedAt,
-                Phone = seller.Phone ?? string.Empty,
-                Email = seller.Email ?? string.Empty
+                Phone = seller.Phone,
+                Email = seller.Email
             };
         }
 
-        public async Task<SellerDto?> UpdateAsync(
-            int id,
-            UpdateSellerDto dto)
+        public async Task<SellerDetailDto?> UpdateAsync(int id, UpdateSellerDto dto)
         {
-            var userIdClaim = _httpContextAccessor.HttpContext?
-                .User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var userId = GetCurrentUserId()
+                ?? throw new UnauthorizedAccessException("User is not authorized.");
 
-            if (!int.TryParse(userIdClaim, out int userId))
-            {
-                throw new UnauthorizedAccessException("User is not authorized.");
-            }
-
-            var seller = await _db.Sellers
-                .FirstOrDefaultAsync(s => s.Id == id);
+            var seller = await _db.Sellers.FirstOrDefaultAsync(s => s.Id == id);
 
             if (seller == null)
-            {
                 return null;
-            }
 
             if (seller.UserId != userId)
-            {
-                throw new UnauthorizedAccessException(
-                    "You can update only your own seller profile.");
-            }
+                throw new UnauthorizedAccessException("You can update only your own seller profile.");
 
             seller.Name = dto.Name;
             seller.Description = dto.Description;
@@ -127,44 +126,32 @@ namespace BlitzMall_Backend.Services
 
             await _db.SaveChangesAsync();
 
-            return new SellerDto
+            return new SellerDetailDto
             {
                 Id = seller.Id,
-                Name = seller.Name ?? string.Empty,
-                Description = seller.Description ?? string.Empty,
+                Name = seller.Name,
+                Description = seller.Description,
                 UserId = seller.UserId,
                 CreatedAt = seller.CreatedAt,
-                Phone = seller.Phone ?? string.Empty,
-                Email = seller.Email ?? string.Empty
+                Phone = seller.Phone,
+                Email = seller.Email
             };
         }
 
         public async Task<bool> DeleteAsync(int id)
         {
-            var userIdClaim = _httpContextAccessor.HttpContext?
-                .User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var userId = GetCurrentUserId()
+                ?? throw new UnauthorizedAccessException("User is not authorized.");
 
-            if (!int.TryParse(userIdClaim, out int userId))
-            {
-                throw new UnauthorizedAccessException("User is not authorized.");
-            }
-
-            var seller = await _db.Sellers
-                .FirstOrDefaultAsync(s => s.Id == id);
+            var seller = await _db.Sellers.FirstOrDefaultAsync(s => s.Id == id);
 
             if (seller == null)
-            {
                 return false;
-            }
 
             if (seller.UserId != userId)
-            {
-                throw new UnauthorizedAccessException(
-                    "You can delete only your own seller profile.");
-            }
+                throw new UnauthorizedAccessException("You can delete only your own seller profile.");
 
             _db.Sellers.Remove(seller);
-
             await _db.SaveChangesAsync();
 
             return true;

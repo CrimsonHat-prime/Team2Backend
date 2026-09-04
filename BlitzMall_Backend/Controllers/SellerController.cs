@@ -16,16 +16,13 @@ namespace BlitzMall_Backend.Controllers
             _sellerService = sellerService;
         }
 
-        // GET: api/Seller
         [HttpGet]
         public async Task<ActionResult<List<SellerDto>>> GetAll()
         {
             var sellers = await _sellerService.GetAllAsync();
-
             return Ok(sellers);
         }
 
-        // GET: api/Seller/5
         [HttpGet("{id}")]
         public async Task<ActionResult<SellerDto>> GetById(int id)
         {
@@ -37,12 +34,26 @@ namespace BlitzMall_Backend.Controllers
             return Ok(seller);
         }
 
-        // POST: api/Seller
+        [Authorize]
+        [HttpGet("{id}/details")]
+        public async Task<ActionResult<SellerDetailDto>> GetDetails(int id)
+        {
+            var seller = await _sellerService.GetDetailsByIdAsync(id);
+
+            if (seller == null)
+                return NotFound("Seller not found.");
+
+            return Ok(seller);
+        }
+
         [Authorize]
         [HttpPost]
-        public async Task<ActionResult<SellerDto>> Create(
+        public async Task<ActionResult<SellerDetailDto>> Create(
             [FromBody] CreateSellerDto dto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             try
             {
                 var seller = await _sellerService.CreateAsync(dto);
@@ -62,13 +73,15 @@ namespace BlitzMall_Backend.Controllers
             }
         }
 
-        // PUT: api/Seller/5
         [Authorize]
         [HttpPut("{id}")]
-        public async Task<ActionResult<SellerDto>> Update(
+        public async Task<ActionResult<SellerDetailDto>> Update(
             int id,
             [FromBody] UpdateSellerDto dto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             try
             {
                 var seller = await _sellerService.UpdateAsync(id, dto);
@@ -84,7 +97,6 @@ namespace BlitzMall_Backend.Controllers
             }
         }
 
-        // DELETE: api/Seller/5
         [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
