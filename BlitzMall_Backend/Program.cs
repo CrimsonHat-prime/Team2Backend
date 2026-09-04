@@ -4,13 +4,14 @@ using BlitzMall_Backend.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using System.Text;
 
 namespace BlitzMall_Backend
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +28,9 @@ namespace BlitzMall_Backend
             builder.Services.AddScoped<ICategoryService, CategoryService>();
             builder.Services.AddScoped<IAddressService, AddressService>();
             builder.Services.AddScoped<IReviewService, ReviewService>();
+            builder.Services.AddScoped<ISellerService, SellerService>();
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<ICartService, CartService>();
             builder.Services.AddHttpContextAccessor();
 
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -45,29 +49,51 @@ namespace BlitzMall_Backend
                     };
                 });
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
-          
+
+            builder.Services.AddSwaggerGen(options =>
+            {
+                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "Enter JWT token"
+                });
+
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        Array.Empty<string>()
+                    }
+                });
+            });
 
             var app = builder.Build();
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                var configuration = scope.ServiceProvider.GetRequiredService<IConfiguration>();
+
+                db.Database.Migrate();
+
+                await DbSeeder.SeedAsync(db, configuration);
+            }
+
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
-            }
-            using (var scope = app.Services.CreateScope())
-            {
-                var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-                db.Database.Migrate();
-
-                if (!db.Roles.Any())
-                {
-                    db.Roles.AddRange(
-                        new Role { Name = "Buyer", Description = "Regular customer" },
-                        new Role { Name = "Seller", Description = "Product seller" },
-                        new Role { Name = "Admin", Description = "Administrator" }
-                    );
-                    db.SaveChanges();
-                }
             }
 
             app.UseHttpsRedirection();
@@ -78,7 +104,6 @@ namespace BlitzMall_Backend
             app.UseAuthorization();
 
             app.MapControllers();
-
 
             app.Run();
         }
