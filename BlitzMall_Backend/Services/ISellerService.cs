@@ -6,8 +6,9 @@ namespace BlitzMall_Backend.Services
     {
         Task<List<SellerDto>> GetAllAsync();
         Task<SellerDto?> GetByIdAsync(int id);
-        Task<SellerDto> CreateAsync(CreateSellerDto dto);
-        Task<SellerDto?> UpdateAsync(int id, UpdateSellerDto dto);
+        Task<SellerDetailDto?> GetDetailsByIdAsync(int id);
+        Task<SellerDetailDto> CreateAsync(CreateSellerDto dto);
+        Task<SellerDetailDto?> UpdateAsync(int id, UpdateSellerDto dto);
         Task<bool> DeleteAsync(int id);
     }
 }

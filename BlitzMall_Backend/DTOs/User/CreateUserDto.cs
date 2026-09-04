@@ -10,7 +10,7 @@ namespace BlitzMall_Backend.DTOs.User
         [MaxLength(50)]
         public string? Status { get; set; }
 
-        [Required, MaxLength(254)]
+        [Required, EmailAddress, MaxLength(254)]
         public string Email { get; set; } = string.Empty;
 
         [MaxLength(20)]
