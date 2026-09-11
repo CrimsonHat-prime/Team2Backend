@@ -57,8 +57,14 @@ namespace BlitzMall_Backend.Services
 
         public async Task<OrderDto?> GetByIdAsync(int id)
         {
+            var userId = GetUserId();
+            var isAdmin = _httpContextAccessor.HttpContext?
+                .User.IsInRole("Admin") ?? false;
+
             return await _db.Orders
-                .Where(o => o.Id == id)
+                .Where(o =>
+                    o.Id == id &&
+                    (isAdmin || o.UserId == userId))
                 .Select(o => new OrderDto
                 {
                     Id = o.Id,

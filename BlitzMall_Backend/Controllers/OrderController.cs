@@ -30,13 +30,16 @@ namespace BlitzMall_Backend.Controllers
                 return StatusCode(500, new { message = ex.Message });
             }
         }
-
         [HttpGet("{id}")]
         public async Task<ActionResult<OrderDto>> GetById(int id)
         {
             try
             {
-                return Ok(await _orderService.GetByIdAsync(id));
+                var order = await _orderService.GetByIdAsync(id);
+
+                return order == null
+                    ? NotFound()
+                    : Ok(order);
             }
             catch (Exception ex)
             {
