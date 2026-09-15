@@ -6,5 +6,14 @@ namespace BlitzMall_Backend.Services
     {
         Task<AuthResponseDto> RegisterAsync(RegisterDto dto);
         Task<AuthResponseDto> LoginAsync(LoginDto dto);
+        Task ForgotPasswordAsync(ForgotPasswordDto dto);
+
+        Task ResetPasswordAsync(ResetPasswordDto dto);
+
+        Task ChangePasswordAsync(
+            int userId,
+            ChangePasswordDto dto);
+
+
     }
 }
