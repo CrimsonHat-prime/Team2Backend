@@ -27,7 +27,10 @@ namespace BlitzMall_Backend.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = ex.Message });
+                return StatusCode(500, new
+                {
+                    message = ex.Message
+                });
             }
         }
 
@@ -44,29 +47,88 @@ namespace BlitzMall_Backend.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = ex.Message });
+                return StatusCode(500, new
+                {
+                    message = ex.Message
+                });
             }
         }
 
-        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<ActionResult<PaymentDto>> Create(
             [FromBody] CreatePaymentDto dto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             try
             {
                 var payment = await _paymentService.CreateAsync(dto);
 
                 return payment == null
-                    ? BadRequest(new { message = "Order not found." })
+                    ? NotFound(new
+                    {
+                        message = "Order not found."
+                    })
                     : CreatedAtAction(
                         nameof(GetById),
                         new { id = payment.Id },
                         payment);
             }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new
+                {
+                    message = ex.Message
+                });
+            }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = ex.Message });
+                return StatusCode(500, new
+                {
+                    message = ex.Message
+                });
+            }
+        }
+
+        [HttpPost("{id}/process")]
+        public async Task<ActionResult<PaymentDto>> Process(int id)
+        {
+            try
+            {
+                var payment = await _paymentService.ProcessAsync(id);
+
+                return payment == null
+                    ? NotFound()
+                    : Ok(payment);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new
+                {
+                    message = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    message = ex.Message
+                });
             }
         }
 
@@ -76,6 +138,9 @@ namespace BlitzMall_Backend.Controllers
             int id,
             [FromBody] UpdatePaymentDto dto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             try
             {
                 var payment = await _paymentService.UpdateAsync(id, dto);
@@ -86,7 +151,10 @@ namespace BlitzMall_Backend.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = ex.Message });
+                return StatusCode(500, new
+                {
+                    message = ex.Message
+                });
             }
         }
 
@@ -102,7 +170,10 @@ namespace BlitzMall_Backend.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = ex.Message });
+                return StatusCode(500, new
+                {
+                    message = ex.Message
+                });
             }
         }
     }
